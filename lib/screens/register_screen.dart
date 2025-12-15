@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       );
     } else if (mounted) {
-      // Registration successful - go back to login
+      // register successful, login now 
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -115,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Email Field
+                // email space
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -136,7 +136,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Password Field
+                // password space
                 TextFormField(
                   controller: _passwordController,
                   obscureText: _obscurePassword,
@@ -165,7 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Confirm Password Field
+                // confirm password space
                 TextFormField(
                   controller: _confirmPasswordController,
                   obscureText: _obscureConfirmPassword,
@@ -194,7 +194,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 24),
                 
-                // Register Button
+                // register click
                 ElevatedButton(
                   onPressed: _isLoading ? null : _handleRegister,
                   style: ElevatedButton.styleFrom(

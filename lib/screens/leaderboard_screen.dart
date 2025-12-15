@@ -140,7 +140,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
     Color rankColor = Colors.grey;
     IconData? medalIcon;
     
-    // Medal colors for top 3
+    // colors for top 3
     if (rank == 1) {
       rankColor = Colors.amber;
       medalIcon = Icons.emoji_events;

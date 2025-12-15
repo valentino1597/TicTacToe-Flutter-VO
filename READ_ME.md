@@ -45,12 +45,12 @@ dependencies:
 ## 🚀 Installation & Setup
 
 - Flutter SDK installed
-- Chrome browser (for web deployment)
+- Chrome browser (for web deployment) or Android Emulator
 - Firebase account
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/tictactoe-flutter-game.git
+git clone https://github.com/valentino1597/TicTacToe-Flutter-VO
 cd tictactoe-flutter-game
 ```
 
@@ -81,23 +81,20 @@ await Firebase.initializeApp(
 ```
 
 ### Step 4: Run the Application
+
+**For Web:**
 ```bash
 flutter run -d chrome
 ```
 
+**For Android:**
+```bash
+flutter run
+```
+
 ## 📸 Screenshots
 
-### Login Screen
-![Login Screen](screenshots/login.png)
-
-### Registration Screen
-![Registration Screen](screenshots/register.png)
-
-### Game Screen
-![Game Screen](screenshots/game.png)
-
-### Leaderboard
-![Leaderboard](screenshots/leaderboard.png)
+All screenshots of Login, Register, Game and Leaderboard are available in the "screenshots" file. 
 
 ## 🎮 How to Use TicTacToe_Game
 
@@ -111,6 +108,8 @@ flutter run -d chrome
 
 ## 🏗️ Project Structure
 
+## 🏗️ Project Structure
+```
 lib/
 ├── main.dart                    # App entry point & Firebase initialization
 ├── models/
@@ -124,14 +123,18 @@ lib/
 └── services/
     ├── auth_service.dart        # Firebase authentication handling
     └── storage_service.dart     # Local data persistence
+```
+
 
 ## 🎯 Implementation Details
 
 ### Game Logic
-- 3x3 grid with 9 cells
-- Players alternate between X and O, the player that register plays X
-- Win detection for rows, columns, and diagonals
-- Draw detection when board is full
+
+- Board represented as a flat list of 9 cells (indices 0-8)
+- Players alternate between X and O (Player 1 = X, Player 2 = O)
+- Win detection checks 8 patterns: 3 rows, 3 columns, 2 diagonals
+- Draw detection when all cells are filled without a winner
+
 
 ### Authentication
 - Firebase Auth for secure user management
@@ -142,17 +145,17 @@ lib/
 ### Data Storage
 - Local storage using SharedPreferences (due to Firestore billing requirements)
 - Persistent score tracking across sessions
-- Leaderboard sorted by wins and win rate
+- Leaderboard sorted by wins and win rate with a Top3.
 
 ## 🧪 Testing
 
 The application has been tested for:
-- ✅ User registration with various inputs
-- ✅ Login with correct/incorrect credentials
-- ✅ Game win conditions (all 8 patterns)
-- ✅ Draw condition
-- ✅ Score persistence after app restart
-- ✅ Leaderboard sorting accuracy
+- User registration with various inputs
+- Login with correct/incorrect credentials
+- Game win conditions (all 8 patterns)
+- Draw condition
+- Score persistence after app restart
+- Leaderboard sorting accuracy
 
 ## 🚧 Limitations & Future Improvements
 
@@ -166,21 +169,38 @@ The application has been tested for:
 - Implement AI opponent with difficulty levels, so that there is a real solo mode. 
 - Add multiplayer mode with real-time sync.
 - Include sound effects and animations.
-- Add profile pictures and user customization.
 - An even more detailed interface.
 
 ## 🎓 Learning Outcomes
 
-Through this project, I learned:
-- Game logic, that can be put as .dart 
+**Technical Skills:**
 - Flutter UI development and widget composition
-- Firebase Authentication integration
-- State management with Provider
-- Local data persistence strategies
-- Form validation and error handling
-- Git version control and project organization
+- Firebase Authentication integration and error handling
+- State management using Provider pattern
+- Local data persistence with SharedPreferences
+- JSON serialization and deserialization
+- Form validation and user input handling
+- Cross-platform development (Web and Android)
+- Git version control and GitHub collaboration
+
+**Problem-Solving:**
+- Adapting to technical constraints (Firestore billing → SharedPreferences)
+- Debugging Android v1 embedding errors
+- Understanding async operations and state management
+- Designing clean code architecture (MVC pattern)
+
+**Software Engineering:**
+- Project organization and folder structure
+- Separation of concerns (Models, Views, Services)
+- Code documentation, and commenting when necessary
+- READ_ME documentation
+- Version control with meaningful commits
 
 ## 📝 Notes
 
 **Why Local Storage Instead of Firestore?**  
 Firebase Firestore requires billing to be enabled. To avoid potential charges and simplify development, I implemented local storage using SharedPreferences. This still demonstrates data persistence and leaderboard functionality while staying within the free tier.
+
+# Acknowledgments 
+
+I want to thank the teacher for giving us the material and opportunity to work on this project where i learned alot, that will surely be usefull for my future engineering career. 

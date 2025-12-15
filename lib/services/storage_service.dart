@@ -6,34 +6,31 @@ class StorageService {
   static const String _statsKey = 'user_stats';
   static const String _leaderboardKey = 'leaderboard';
   
-  // Save user stats
+  // this is for saving user stats and updating leaderboard
   Future<void> saveUserStats(UserStats stats) async {
     final prefs = await SharedPreferences.getInstance();
     final json = jsonEncode(stats.toJson());
     await prefs.setString('${_statsKey}_${stats.userId}', json);
     
-    // Also update leaderboard
     await _updateLeaderboard(stats);
   }
   
-  // Get user stats
   Future<UserStats?> getUserStats(String userId, String username) async {
     final prefs = await SharedPreferences.getInstance();
     final json = prefs.getString('${_statsKey}_$userId');
     
     if (json == null) {
-      // Return new stats if none exist
+      // new stats if none exist
       return UserStats(userId: userId, username: username);
     }
     
     return UserStats.fromJson(jsonDecode(json));
   }
   
-  // Update leaderboard
+  // this is for updating the leaderboard
   Future<void> _updateLeaderboard(UserStats stats) async {
     final prefs = await SharedPreferences.getInstance();
-    
-    // Get existing leaderboard
+
     final leaderboardJson = prefs.getString(_leaderboardKey);
     List<UserStats> leaderboard = [];
     
@@ -42,21 +39,19 @@ class StorageService {
       leaderboard = decoded.map((item) => UserStats.fromJson(item)).toList();
     }
     
-    // Remove old entry for this user if exists
     leaderboard.removeWhere((s) => s.userId == stats.userId);
     
-    // Add updated stats
     leaderboard.add(stats);
     
-    // Sort by wins (descending)
+    // descending sorting by wins
     leaderboard.sort((a, b) => b.wins.compareTo(a.wins));
     
-    // Save back
+    // save 
     final jsonList = leaderboard.map((s) => s.toJson()).toList();
     await prefs.setString(_leaderboardKey, jsonEncode(jsonList));
   }
   
-  // Get leaderboard
+  // to get the leaderboard
   Future<List<UserStats>> getLeaderboard() async {
     final prefs = await SharedPreferences.getInstance();
     final json = prefs.getString(_leaderboardKey);
@@ -68,7 +63,6 @@ class StorageService {
     final List<dynamic> decoded = jsonDecode(json);
     final leaderboard = decoded.map((item) => UserStats.fromJson(item)).toList();
     
-    // Sort by wins
     leaderboard.sort((a, b) => b.wins.compareTo(a.wins));
     
     return leaderboard;

@@ -13,16 +13,16 @@ class UserStats {
     this.draws = 0,
   });
   
-  // Total games 
+  // number of games 
   int get totalGames => wins + losses + draws;
   
-  // Win rate percentage using simple maths
+  // win rate percentage using simple maths
   double get winRate {
     if (totalGames == 0) return 0.0;
     return (wins / totalGames) * 100;
   }
   
-  // Convert to JSON for storage
+  // convert to JSON for storage
   Map<String, dynamic> toJson() {
     return {
       'userId': userId,
@@ -33,7 +33,7 @@ class UserStats {
     };
   }
   
-  // Create from JSON
+  // create from JSON
   factory UserStats.fromJson(Map<String, dynamic> json) {
     return UserStats(
       userId: json['userId'] ?? '',
@@ -44,7 +44,7 @@ class UserStats {
     );
   }
   
-  // Create a copy with updated values
+  // copy with updated values
   UserStats copyWith({
     String? userId,
     String? username,
