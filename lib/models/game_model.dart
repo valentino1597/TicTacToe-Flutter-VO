@@ -1,5 +1,5 @@
 class GameModel {
-  List<String> board; // 9 cells
+  List<String> board; // for the 9 cells
   String currentPlayer; 
   bool gameOver;
   String winner; 
@@ -13,7 +13,7 @@ class GameModel {
   
   
   bool makeMove(int index) {
-    // Check move validity ?
+    // Check move validity 
     if (gameOver || board[index].isNotEmpty) {
       return false;
     }
@@ -26,7 +26,7 @@ class GameModel {
       gameOver = true;
       winner = currentPlayer;
     } else if (board.every((cell) => cell.isNotEmpty)) {
-      // Board is full - it's a draw
+      // Board is full, then that means its a draw logically 
       gameOver = true;
       winner = 'Draw';
     } else {
@@ -36,18 +36,18 @@ class GameModel {
     return true;
   }
   
-  // Check if player won
+  // for checking if player won
   bool checkWinner() {
-    // All the winning combinations bellow
+    // the winning combinations bellow
     const winPatterns = [
-      [0, 1, 2], // Top row
-      [3, 4, 5], // Middle row
-      [6, 7, 8], // Bottom row
-      [0, 3, 6], // Left column
-      [1, 4, 7], // Middle column
-      [2, 5, 8], // Right column
-      [0, 4, 8], // Diagonal top-left to bottom-right
-      [2, 4, 6], // Diagonal top-right to bottom-left
+      [0, 1, 2], 
+      [3, 4, 5], 
+      [6, 7, 8], 
+      [0, 3, 6], 
+      [1, 4, 7], 
+      [2, 5, 8], 
+      [0, 4, 8], 
+      [2, 4, 6], 
     ];
     
     for (var pattern in winPatterns) {
@@ -61,7 +61,7 @@ class GameModel {
     return false;
   }
   
-  // Reset game
+  // for reseting the game
   void reset() {
     board = List.filled(9, '');
     currentPlayer = 'X';
@@ -69,7 +69,7 @@ class GameModel {
     winner = '';
   }
   
-  // Game result message
+  // result of the game message
   String getResultMessage() {
     if (!gameOver) return '';
     if (winner == 'Draw') return "It's a Draw!";
