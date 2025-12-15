@@ -6,13 +6,13 @@
 **Student ID:** 5999251008
 
 
-## 📖 Project Description
+##  Project Description
 
 For this final project i created a simple Tic Tac Toe game built with Flutter and Firebase Authentication. With the little experience I had with flutter, I found this project challenging and exciting because it allowed me to learn about the creation of applications in general. 
 In this app players can register, login, play games, and track their performance on a local leaderboard. 
 The game features a clean UI, real-time score tracking, and a local data storage (Firebase asked me to pay for cloud storring).
 
-## ✨ Features
+##  Features
 
 - **User Authentication** - Secure email/password registration and login via Firebase
 - **Tic Tac Toe Game** - Fully functional game logic with win/loss/draw detection
@@ -22,7 +22,7 @@ The game features a clean UI, real-time score tracking, and a local data storage
 - **Input Validation** - Email format and password length checks
 - **Error Handling** - Clear error messages for authentication issues
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **Flutter** (latest stable version) - UI framework
 - **Firebase Authentication** - User account management
@@ -30,7 +30,7 @@ The game features a clean UI, real-time score tracking, and a local data storage
 - **SharedPreferences** - Local data
 - **Dart** - Programming language
 
-## 📦 Dependencies
+##  Dependencies
 
 ```yaml
 dependencies:
@@ -42,7 +42,7 @@ dependencies:
   shared_preferences: ^2.2.2
 ```
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 - Flutter SDK installed
 - Chrome browser (for web deployment) or Android Emulator
@@ -96,7 +96,7 @@ flutter run
 
 All screenshots of Login, Register, Game and Leaderboard are available in the "screenshots" file. 
 
-## 🎮 How to Use TicTacToe_Game
+##  How to Use TicTacToe_Game
 
 1. **Register** - Create a new account with username, email, and password
 2. **Login** - Sign in with your credentials
@@ -106,7 +106,7 @@ All screenshots of Login, Register, Game and Leaderboard are available in the "s
 6. **New Game** - Click "New Game" button to reset the board
 7. **Logout** - Click the logout icon to sign out
 
-## 🏗️ Project Structure
+##  Project Structure
 ```
 lib/
 ├── main.dart                    # App entry point & Firebase initialization
@@ -124,7 +124,7 @@ lib/
 ```
 
 
-## 🎯 Implementation Details
+##  Implementation Details
 
 ### Game Logic
 
@@ -145,7 +145,7 @@ lib/
 - Persistent score tracking across sessions
 - Leaderboard sorted by wins and win rate with a Top3.
 
-## 🧪 Testing
+##  Testing
 
 The application has been tested for:
 - User registration with various inputs
@@ -155,7 +155,7 @@ The application has been tested for:
 - Score persistence after app restart
 - Leaderboard sorting accuracy
 
-## 🚧 Limitations & Future Improvements
+##  Limitations & Future Improvements
 
 ### Current Limitations:
 - Local leaderboard only (not shared across devices)
@@ -169,7 +169,7 @@ The application has been tested for:
 - Include sound effects and animations.
 - An even more detailed interface.
 
-## 🎓 Learning Outcomes
+##  Learning Outcomes
 
 **Technical Skills:**
 - Flutter UI development and widget composition
@@ -194,7 +194,7 @@ The application has been tested for:
 - READ_ME documentation
 - Version control with meaningful commits
 
-## 📝 Notes
+##  Notes
 
 **Why Local Storage Instead of Firestore?**  
 Firebase Firestore requires billing to be enabled. To avoid potential charges and simplify development, I implemented local storage using SharedPreferences. This still demonstrates data persistence and leaderboard functionality while staying within the free tier.
