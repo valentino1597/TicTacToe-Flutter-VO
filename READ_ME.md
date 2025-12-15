@@ -107,8 +107,6 @@ All screenshots of Login, Register, Game and Leaderboard are available in the "s
 7. **Logout** - Click the logout icon to sign out
 
 ## 🏗️ Project Structure
-
-## 🏗️ Project Structure
 ```
 lib/
 ├── main.dart                    # App entry point & Firebase initialization
